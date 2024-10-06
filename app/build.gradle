@@ -1,79 +1,107 @@
+// 应用Android应用插件
 apply plugin: 'com.android.application'
+// 应用Kotlin Android插件
 apply plugin: 'kotlin-android'
+// 应用Kotlin Android扩展插件
 apply plugin: 'kotlin-android-extensions'
+// 应用Kotlin注解处理器插件
 apply plugin: 'kotlin-kapt'
+// 应用Android导航组件安全参数Kotlin插件
 apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
+    // 设置编译SDK版本
     compileSdkVersion 29
+    // 设置构建工具版本
     buildToolsVersion "30.0.1"
 
     defaultConfig {
+        // 设置应用ID
         applicationId "com.jd.todoapp"
+        // 设置最低SDK版本
         minSdkVersion 26
+        // 设置目标SDK版本
         targetSdkVersion 29
+        // 设置版本号
         versionCode 1
+        // 设置版本名称
         versionName "1.0"
 
+        // 设置测试运行器
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
+        // 设置发布版本
         release {
+            // 设置是否启用代码混淆
             minifyEnabled false
+            // 设置混淆文件
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
+    // 启用数据绑定
     buildFeatures {
         dataBinding = true
     }
 
+    // 设置Java版本
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    // 设置Kotlin版本
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 }
 
 dependencies {
+    // 添加libs目录下的所有jar文件
     implementation fileTree(dir: "libs", include: ["*.jar"])
+    // 添加Kotlin标准库
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    // 添加Android核心库
     implementation 'androidx.core:core-ktx:1.3.1'
+    // 添加Android应用兼容库
     implementation 'androidx.appcompat:appcompat:1.2.0'
+    // 添加约束布局库
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    // 添加Android旧版支持库
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    // 添加JUnit测试库
     testImplementation 'junit:junit:4.13'
+    // 添加Android测试扩展JUnit库
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    // 添加Android测试Espresso核心库
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    //Navigation Component
+    // 添加导航组件库
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
-    //Room Component
+    // 添加Room组件库
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
     androidTestImplementation "androidx.room:room-testing:$room_version"
 
-    //Lifecycle Component
+    // 添加Lifecycle组件库
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 
-    //Kotlin Component
+    // 添加Kotlin组件库
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.5"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.5"
 
-    //Data Binding
+    // 添加数据绑定库
     kapt "com.android.databinding:compiler:3.2.0-alpha10"
     kapt "androidx.databinding:databinding-common:4.0.1"
 
-    //RecyclerView Animator
+    // 添加RecyclerView动画库
     implementation "jp.wasabeef:recyclerview-animators:3.0.0"
 }

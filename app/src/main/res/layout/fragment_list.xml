@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 布局文件，定义了一个ConstraintLayout，其中包含了一个RecyclerView和一个FloatingActionButton，以及两个ImageView和TextView -->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- 定义了一个变量mSharedViewModel，类型为com.jd.todoapp.fragments.SharedViewModel -->
     <data>
 
         <variable
@@ -11,12 +13,14 @@
 
     </data>
 
+    <!-- 定义了一个ConstraintLayout，id为listLayout，宽度为match_parent，高度为match_parent -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/listLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".fragments.list.ListFragment">
 
+        <!-- 定义了一个RecyclerView，id为recyclerView，宽度为0dp，高度为0dp，clipToPadding为false，paddingTop为8dp -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="0dp"
@@ -29,6 +33,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- 定义了一个FloatingActionButton，id为floatingActionButton，宽度为wrap_content，高度为wrap_content，layout_marginEnd为24dp，layout_marginBottom为24dp，clickable为true，focusable为true，navigateToAddFragment为true，src为@drawable/ic_check，tint为@color/white -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingActionButton"
             android:layout_width="wrap_content"
@@ -43,6 +48,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
+        <!-- 定义了一个ImageView，id为no_data_imageView，宽度为100dp，高度为100dp，contentDescription为@string/no_data，emptyDatabase为mSharedViewModel.empyDatabase，src为@drawable/ic_no_data，visibility为invisible -->
         <ImageView
             android:id="@+id/no_data_imageView"
             android:layout_width="100dp"
@@ -58,6 +64,7 @@
             app:layout_constraintVertical_bias="0.37"
             tools:visibility="visible" />
 
+        <!-- 定义了一个TextView，id为no_data_textView，宽度为wrap_content，高度为wrap_content，layout_marginTop为12dp，alpha为0.5，emptyDatabase为mSharedViewModel.empyDatabase，text为@string/no_data，textSize为16sp，visibility为invisible -->
         <TextView
             android:id="@+id/no_data_textView"
             android:layout_width="wrap_content"

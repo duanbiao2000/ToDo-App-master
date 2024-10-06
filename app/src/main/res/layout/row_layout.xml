@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 定义一个布局，使用Android和App命名空间 -->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!-- 定义一个变量，类型为com.jd.todoapp.data.models.ToDoData -->
     <data>
 
         <variable
@@ -9,11 +11,13 @@
             type="com.jd.todoapp.data.models.ToDoData" />
     </data>
 
+    <!-- 定义一个ConstraintLayout，宽度为match_parent，高度为wrap_content，外边距为4dp -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp">
 
+        <!-- 定义一个ConstraintLayout，作为行背景，宽度为match_parent，高度为wrap_content，背景为item_background，导航更新为toDoData -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/row_background"
             android:layout_width="match_parent"
@@ -26,6 +30,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <!-- 定义一个TextView，作为标题，宽度为0dp，高度为wrap_content，左边距为20dp，上边距为16dp，右边距为16dp，文本为toDoData.title，文本颜色为darkGray，文本大小为20sp，文本样式为bold -->
             <TextView
                 android:id="@+id/title_txt"
                 android:layout_width="0dp"
@@ -41,6 +46,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <!-- 定义一个TextView，作为描述，宽度为0dp，高度为wrap_content，上边距为8dp，右边距为16dp，下边距为16dp，最大长度为300，最大行数为10，文本为toDoData.description，文本颜色为darkGray -->
             <TextView
                 android:id="@+id/description_txt"
                 android:layout_width="0dp"
@@ -59,6 +65,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/title_txt"
                 app:layout_constraintVertical_bias="0.0" />
 
+            <!-- 定义一个CardView，作为优先级指示器，宽度为16dp，高度为16dp，上边距为16dp，右边距为16dp，解析优先级颜色为toDoData.priority，卡片背景颜色为red，卡片圆角半径为100dp -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/priority_indicator"
                 android:layout_width="16dp"

@@ -15,15 +15,24 @@ import com.jd.todoapp.fragments.SharedViewModel
 import kotlinx.android.synthetic.main.fragment_add.*
 import kotlinx.android.synthetic.main.fragment_add.view.*
 
+/**
+ * A fragment for adding new ToDo items.
+ */
 class AddFragment : Fragment() {
 
+    // ViewModel for ToDo operations.
     private val mTodoViewModel: ToDoViewModel by viewModels()
+    // Shared ViewModel for data verification and priority parsing.
     private val mSharedViewModel: SharedViewModel by viewModels()
-    // Override the onCreateView method to create and return the View hierarchy associated with the fragment.
-    // @param inflater The LayoutInflater object that can be used to inflate any views in the fragment.
-    // @param container If non-null, this is the parent view that the fragment's UI should be attached to.
-    // @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state as given here.
-    // @return Return the View for the fragment's UI, or null.
+    
+    /**
+     * Creates and returns the View hierarchy associated with the fragment.
+     *
+     * @param inflater The LayoutInflater object that can be used to inflate any views in the fragment.
+     * @param container If non-null, this is the parent view that the fragment's UI should be attached to.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed from a previous saved state as given here.
+     * @return Return the View for the fragment's UI, or null.
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,16 +44,22 @@ class AddFragment : Fragment() {
         return view
     }
 
-    // Override the onCreateOptionsMenu method to inflate the add_fragment_menu menu
-    // Override the onCreateOptionsMenu method to inflate the add_fragment_menu menu
+    /**
+     * Inflates the add_fragment_menu menu for this fragment.
+     *
+     * @param menu The Menu to be inflated.
+     * @param inflater The MenuInflater used to inflate the menu.
+     */
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.add_fragment_menu, menu)
     }
 
-    // Override the onOptionsItemSelected function to handle menu item selections.
-    // 
-    // @param item The selected menu item.
-    // @return True if the menu item selection was handled, false otherwise.
+    /**
+     * Handles menu item selections.
+     *
+     * @param item The selected menu item.
+     * @return True if the menu item selection was handled, false otherwise.
+     */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.menu_add) {
             insertDataToDb()
@@ -52,9 +67,11 @@ class AddFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
-    // Function to insert data into the database by extracting values from the UI elements,
-    // validating the data, creating a new ToDoData object, inserting the data into the ViewModel,
-    // displaying a success message, and navigating to the listFragment if successful. 
+    /**
+     * Inserts data into the database by extracting values from the UI elements,
+     * validating the data, creating a new ToDoData object, inserting the data into the ViewModel,
+     * displaying a success message, and navigating to the listFragment if successful.
+     */
     private fun insertDataToDb() {
         val mTitle = title_et.text.toString()
         val mPriority = priorities_spinner.selectedItem.toString()
@@ -69,7 +86,7 @@ class AddFragment : Fragment() {
                 mDescription
             )
             mTodoViewModel.insertData(newData)
-            Toast.makeText(requireContext(), "Sucessfully Added!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Successfully Added!", Toast.LENGTH_SHORT).show()
 
             findNavController().navigate(R.id.action_addFragment_to_listFragment)
         } else {

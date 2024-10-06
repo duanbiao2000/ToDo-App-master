@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 定义一个布局，使用Android的约束布局 -->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- 定义一个变量，类型为UpdateFragmentArgs -->
     <data>
 
         <variable
@@ -11,12 +13,14 @@
 
     </data>
 
+    <!-- 定义一个约束布局，宽度为match_parent，高度为match_parent，内边距为24dp -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="24dp"
         tools:context=".fragments.update.UpdateFragment">
 
+        <!-- 定义一个EditText，id为current_title_et，宽度为0dp，高度为60dp，背景为custom_input，输入类型为textPersonName，提示为title_hint，文本为args.currentItem.title -->
         <EditText
             android:id="@+id/current_title_et"
             android:layout_width="0dp"
@@ -33,6 +37,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- 定义一个Spinner，id为current_priorities_spinner，宽度为0dp，高度为60dp，内边距为8dp，背景为custom_input，选项为priorities，文本为args.currentItem.priority -->
         <Spinner
             android:id="@+id/current_priorities_spinner"
             android:layout_width="0dp"
@@ -48,6 +53,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/current_title_et" />
 
+        <!-- 定义一个EditText，id为current_description_et，宽度为0dp，高度为0dp，内边距为8dp，背景为custom_input，输入类型为textMultiLine，提示为description_hint，文本为args.currentItem.description -->
         <EditText
             android:id="@+id/current_description_et"
             android:layout_width="0dp"

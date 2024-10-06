@@ -22,6 +22,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        //Bintray 和 JCenter 已经在 2021 年底停止了服务。因此，现在不建议再使用 JCenter 仓库。
     }
 }
 

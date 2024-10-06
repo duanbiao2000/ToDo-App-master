@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jd.todoapp">
+    <!-- 应用程序的总体配置文件，定义了应用的组件和各种属性 -->
 
     <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:fullBackupContent="true">
+        android:allowBackup="true"  <!-- 允许应用数据被备份 -->
+        android:icon="@mipmap/ic_launcher"  <!-- 应用的图标 -->
+        android:label="@string/app_name"  <!-- 应用的名称 -->
+        android:roundIcon="@mipmap/ic_launcher_round"  <!-- 圆形图标，用于Android L及以上版本 -->
+        android:supportsRtl="true"  <!-- 支持从右到左的语言布局 -->
+        android:theme="@style/AppTheme"  <!-- 应用的主题 -->
+        android:fullBackupContent="true"
+        <!-- 应用的主要组件，如活动（Activity）配置 -->
         <activity
-            android:name=".MainActivity"
-            android:windowSoftInputMode="adjustPan">
+            android:name=".MainActivity"  <!-- 活动的名称 -->
+            android:windowSoftInputMode="adjustPan"
+            <!-- 定义了应用启动时的行为和外观 -->
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" />  <!-- 主动作，表示这是应用的入口点 -->
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER" />  <!-- 启动器类别，同样表示这是应用的入口点 -->
             </intent-filter>
         </activity>
     </application>
